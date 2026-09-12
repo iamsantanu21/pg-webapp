@@ -2,8 +2,11 @@
   "name": "pg-service-station",
   "version": "1.0.0",
   "private": true,
-  "description": "P.G. Service Station public website with a password-protected admin area for internal tools (RTGS letter generator + BPCL ID card maker).",
+  "description": "P.G. Service Station public website with a password-protected admin area for internal tools (letter generator, RTGS letter generator, and an Employee Management System with ID card generation).",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
   }
 }

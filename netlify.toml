@@ -21,6 +21,13 @@
   status = 200
   force = true
 
+# --- Employee Management System API ---
+[[redirects]]
+  from = "/api/ems"
+  to = "/.netlify/functions/ems"
+  status = 200
+  force = true
+
 # --- Protected admin dashboard ---
 [[redirects]]
   from = "/admin"
@@ -40,6 +47,13 @@
   to = "/.netlify/functions/app?tool=id-card"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/app/employees"
+  to = "/.netlify/functions/app?tool=employees"
+  status = 200
+  force = true
+
 
 [[redirects]]
   from = "/app/letter"
