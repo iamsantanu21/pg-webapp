@@ -1,0 +1,56 @@
+# Netlify configuration for P.G. Service Station
+# ------------------------------------------------
+# - Everything in "public/" is served publicly (the homepage + login page).
+# - The two internal tools are NOT in "public/". They live inside the
+#   "app" function and are only returned after the login cookie is verified.
+
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+# --- Login / logout API ---
+[[redirects]]
+  from = "/api/login"
+  to = "/.netlify/functions/login"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/logout"
+  to = "/.netlify/functions/logout"
+  status = 200
+  force = true
+
+# --- Protected admin dashboard ---
+[[redirects]]
+  from = "/admin"
+  to = "/.netlify/functions/app"
+  status = 200
+  force = true
+
+# --- Protected tools (served by the function only after login) ---
+[[redirects]]
+  from = "/app/rtgs"
+  to = "/.netlify/functions/app?tool=rtgs"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/app/id-card"
+  to = "/.netlify/functions/app?tool=id-card"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/app/letter"
+  to = "/.netlify/functions/app?tool=letter"
+  status = 200
+  force = true
+
+# Security headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"

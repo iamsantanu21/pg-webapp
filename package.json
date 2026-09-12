@@ -1,0 +1,9 @@
+{
+  "name": "pg-service-station",
+  "version": "1.0.0",
+  "private": true,
+  "description": "P.G. Service Station public website with a password-protected admin area for internal tools (RTGS letter generator + BPCL ID card maker).",
+  "engines": {
+    "node": ">=18"
+  }
+}

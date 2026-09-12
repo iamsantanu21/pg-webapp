@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff Login — P.G. Service Station</title>
+<style>
+  :root{--blue:#003f87;--blue-dark:#002a5c;--yellow:#ffd600;--ink:#0f172a;--muted:#5b6b7f;--line:#e2e8f0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(150deg,var(--blue),var(--blue-dark));min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;color:var(--ink)}
+  .card{background:#fff;width:100%;max-width:400px;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.28);overflow:hidden}
+  .top{background:var(--blue);color:#fff;padding:26px 28px;text-align:center}
+  .mark{width:56px;height:56px;border-radius:14px;background:#fff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;margin:0 auto 12px}
+  .top h1{font-size:19px;font-weight:800}
+  .top p{font-size:13px;opacity:.85;margin-top:3px}
+  .yellow-bar{height:4px;background:var(--yellow)}
+  form{padding:28px}
+  label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:8px}
+  .field{position:relative;margin-bottom:18px}
+  input{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;outline:none}
+  input:focus{border-color:var(--blue)}
+  button{width:100%;padding:14px;background:var(--yellow);color:var(--blue-dark);border:0;border-radius:10px;font-size:16px;font-weight:800;cursor:pointer}
+  button:hover{filter:brightness(1.05)}
+  .err{background:#fee2e2;color:#b91c1c;border:1px solid #fecaca;padding:11px 14px;border-radius:10px;font-size:14px;font-weight:600;margin-bottom:18px;display:none}
+  .err.show{display:block}
+  .back{display:block;text-align:center;margin-top:18px;font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--blue)}
+  .note{text-align:center;font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <div class="mark">PG</div>
+      <h1>Staff / Admin Login</h1>
+      <p>P.G. Service Station — private area</p>
+    </div>
+    <div class="yellow-bar"></div>
+    <form method="POST" action="/api/login">
+      <div class="err" id="err">&#9888;&#65039; Wrong password. Please try again.</div>
+      <label for="password">Password</label>
+      <div class="field">
+        <input type="password" id="password" name="password" placeholder="Enter admin password" required autofocus autocomplete="current-password">
+      </div>
+      <button type="submit">&#128274; Log in</button>
+      <a class="back" href="/">&larr; Back to website</a>
+      <p class="note">Only authorised staff can access the internal tools.</p>
+    </form>
+  </div>
+  <script>
+    if (new URLSearchParams(location.search).get("error")) {
+      document.getElementById("err").classList.add("show");
+    }
+  </script>
+</body>
+</html>

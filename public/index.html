@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P.G. Service Station — BPCL Fuel Station, Deganga</title>
+<meta name="description" content="P.G. Service Station — a Bharat Petroleum (BPCL) fuel station in Deganga, North 24 Parganas, West Bengal. Petrol, diesel, lubricants and more.">
+<style>
+  :root{
+    --blue:#003f87; --blue-dark:#002a5c; --yellow:#ffd600;
+    --ink:#0f172a; --muted:#5b6b7f; --bg:#ffffff; --soft:#eef3f9; --line:#e2e8f0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  img{max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:var(--blue);color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;max-width:1080px;margin:0 auto}
+  .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px;letter-spacing:.3px}
+  .logo .mark{width:42px;height:42px;border-radius:10px;background:#fff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;flex-shrink:0}
+  .logo small{display:block;font-weight:500;font-size:11px;opacity:.82}
+  .menu{display:flex;align-items:center;gap:22px;font-size:15px}
+  .menu a{text-decoration:none;opacity:.9}
+  .menu a:hover{opacity:1;text-decoration:underline}
+  .btn-login{background:var(--yellow);color:var(--blue-dark);padding:9px 18px;border-radius:9px;font-weight:800;text-decoration:none;font-size:14px;white-space:nowrap;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+  .btn-login:hover{filter:brightness(1.05)}
+  .yellow-bar{height:4px;background:var(--yellow)}
+  .menu-links{display:flex;align-items:center;gap:22px}
+  @media(max-width:720px){ .menu-links{display:none} }
+
+  /* Hero */
+  .hero{background:linear-gradient(150deg,var(--blue) 0%,var(--blue-dark) 100%);color:#fff;padding:64px 0 72px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(255,214,0,.22),transparent 70%);border-radius:50%}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:18px}
+  .hero h1{font-size:clamp(30px,5vw,48px);font-weight:900;line-height:1.12;max-width:16ch}
+  .hero p{margin-top:16px;font-size:18px;opacity:.92;max-width:52ch}
+  .hero .cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+  .cta a{padding:13px 24px;border-radius:10px;font-weight:800;text-decoration:none;font-size:15px}
+  .cta .primary{background:var(--yellow);color:var(--blue-dark)}
+  .cta .ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35)}
+
+  /* Sections */
+  section{padding:60px 0}
+  .eyebrow{color:var(--blue);font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+  h2{font-size:clamp(24px,3.5vw,34px);font-weight:900;margin:8px 0 10px}
+  .lead{color:var(--muted);max-width:60ch;font-size:16px}
+
+  .services{background:var(--soft)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:34px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px}
+  .card .ico{width:52px;height:52px;border-radius:12px;background:#e8f0fb;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px}
+  .card h3{font-size:18px;font-weight:800;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:14px}
+
+  .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+  @media(max-width:760px){ .about-grid{grid-template-columns:1fr} }
+  .facts{background:var(--blue);color:#fff;border-radius:18px;padding:30px}
+  .facts .row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.16);font-size:14px}
+  .facts .row:last-child{border-bottom:0}
+  .facts .row span:first-child{opacity:.8}
+  .facts .row span:last-child{font-weight:700;text-align:right}
+
+  .contact{background:var(--soft)}
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:30px}
+  .cbox{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
+  .cbox .ico{font-size:24px}
+  .cbox h4{margin:10px 0 4px;font-size:15px}
+  .cbox p{color:var(--muted);font-size:14px}
+  .cbox a{color:var(--blue);font-weight:700;text-decoration:none}
+
+  footer{background:var(--blue-dark);color:#cdd8e8;padding:30px 0;font-size:14px}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+  .foot a{color:var(--yellow);text-decoration:none}
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <div class="mark">PG</div>
+        <div>P.G. Service Station<small>Bharat Petroleum (BPCL) Dealer</small></div>
+      </div>
+      <div class="menu">
+        <div class="menu-links">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a class="btn-login" href="/login.html">&#128274; Staff / Admin Login</a>
+      </div>
+    </div>
+    <div class="yellow-bar"></div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <span class="tag">&#9889; Trusted fuel &amp; service since decades</span>
+      <h1>Quality fuel and honest service in Deganga.</h1>
+      <p>P.G. Service Station is your local Bharat Petroleum (BPCL) filling station in North 24 Parganas, West Bengal — serving vehicles, farmers and businesses every day.</p>
+      <div class="cta">
+        <a class="primary" href="#services">Our Services</a>
+        <a class="ghost" href="#contact">Visit Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="eyebrow">What we offer</div>
+      <h2>Our Services</h2>
+      <p class="lead">Everything your vehicle needs, under one roof.</p>
+      <div class="cards">
+        <div class="card"><div class="ico">&#9981;</div><h3>Petrol (MS)</h3><p>Fresh, quality-checked motor spirit for cars and two-wheelers.</p></div>
+        <div class="card"><div class="ico">&#128667;</div><h3>Diesel (HSD)</h3><p>High Speed Diesel for cars, trucks, tractors and generators.</p></div>
+        <div class="card"><div class="ico">&#128738;</div><h3>Engine Oil &amp; Lubricants</h3><p>MAK lubricants and engine oils for smooth running.</p></div>
+        <div class="card"><div class="ico">&#128690;</div><h3>Air &amp; Water</h3><p>Free tyre air and water top-up for every customer.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <div class="eyebrow">About us</div>
+          <h2>A name your neighbourhood trusts</h2>
+          <p class="lead">P.G. Service Station is an authorised Bharat Petroleum retail outlet located in Village Hamadama, Deganga. We are committed to accurate measurement, clean fuel and friendly service for every vehicle that stops by — from daily commuters to farm equipment and commercial fleets.</p>
+        </div>
+        <div class="facts">
+          <div class="row"><span>Brand</span><span>Bharat Petroleum (BPCL)</span></div>
+          <div class="row"><span>Licence No.</span><span>12/M, HSD/JM/BST/2021</span></div>
+          <div class="row"><span>District</span><span>North 24 Parganas</span></div>
+          <div class="row"><span>State</span><span>West Bengal</span></div>
+          <div class="row"><span>PIN</span><span>743424</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="eyebrow">Get in touch</div>
+      <h2>Visit or Contact Us</h2>
+      <div class="contact-grid">
+        <div class="cbox">
+          <div class="ico">&#128205;</div>
+          <h4>Address</h4>
+          <p>Village: Hamadama, P.O.: Hadipur,<br>P.S.: Deganga, Dist: North 24 Parganas,<br>West Bengal — 743424</p>
+        </div>
+        <div class="cbox">
+          <div class="ico">&#128222;</div>
+          <h4>Phone</h4>
+          <p><a href="tel:+918116160697">+91 81161 60697</a></p>
+        </div>
+        <div class="cbox">
+          <div class="ico">&#9993;</div>
+          <h4>Email</h4>
+          <p><a href="mailto:pgservicestation@gmail.com">pgservicestation@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <div>&copy; <span id="yr"></span> P.G. Service Station · Bharat Petroleum Dealer, Deganga</div>
+      <div><a href="/login.html">&#128274; Staff / Admin Login</a></div>
+    </div>
+  </footer>
+
+  <script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+</body>
+</html>
